@@ -17,8 +17,18 @@
     <script src="lib/p5.sound.js"></script>
     <script src="js/setup.js"></script>
 
-    <!-- <script src="js/1-amplitude.js"></script> -->
-    <script src="js/2-waveform.js"></script>
-    <!-- <script src="js/3-spectrum.js"></script> -->
+    <script>
+        function loadVisualizerScript(visualizer) {
+            var s = document.createElement('script');
+            s.src = "js/" + visualizer + ".js";
+            s.type = "text/javascript";
+            s.async = false;
+            document.querySelector('body').appendChild(s);
+        }
+
+        if (window.location.hash) {
+            loadVisualizerScript(window.location.hash.slice(1));
+        }
+    </script>
 </body>
 </html>
